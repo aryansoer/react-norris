@@ -1,0 +1,28 @@
+.Spinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(236, 239, 241, 0.75);
+  border-radius: 5px;
+}
+
+.Spinner-icon {
+  animation: Spinner-icon-spin infinite 1.25s linear;
+  width: 48px;
+  height: 48px;
+  user-select: none;
+}
+
+@keyframes Spinner-icon-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

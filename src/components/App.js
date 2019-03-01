@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import JokeCard from './joke-card/JokeCard';
+import Spinner from './spinner/Spinner';
 
 class App extends Component {
   componentDidMount() {
@@ -11,11 +12,13 @@ class App extends Component {
   }
 
   render() {
-    const text = this.props.joke.randomJoke || 'Welcome To React Norris';
+    const { randomJoke = '', isLoading } = this.props.joke;
 
     return (
       <div className="App">
-        <JokeCard joke={text}/>
+        <JokeCard joke={randomJoke}>
+          <Spinner show={isLoading}/>
+        </JokeCard>
       </div>
     );
   }
