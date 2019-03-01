@@ -6,4 +6,5 @@
   color: #212121;
   margin: auto;
   padding: 15px;
+  user-select: none;
 }

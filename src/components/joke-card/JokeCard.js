@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 import './JokeCard.css';
 
-const JokeCard = ({ joke, children }) => {
+const JokeCard = ({ text, children }) => {
   return (
     <h1 className="JokeCard">
-      {children} <span>{joke}</span>
+      {children} <span>{text}</span>
     </h1>
   );
 }
 
 JokeCard.propTypes = {
-  joke: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   children: PropTypes.element
 };
 
