@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+import JokeCard from './joke-card/JokeCard';
+
 class App extends Component {
   componentDidMount() {
     this.props.initApp();
@@ -13,7 +15,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>{text}</h1>
+        <JokeCard joke={text}/>
       </div>
     );
   }

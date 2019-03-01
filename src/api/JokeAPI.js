@@ -3,7 +3,7 @@ const axios = require('axios');
 export const JokeAPI = (function JokeAPI() {
   const API_URL = 'https://api.icndb.com';
 
-  async function fetchRandomJoke() {
+  function fetchRandomJoke() {
     return axios.get(`${API_URL}/jokes/random`)
       .then(({ data }) => {
         return (data && data.type === 'success')
