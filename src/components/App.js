@@ -4,7 +4,9 @@ import './App.css';
 
 import JokeCard from './joke-card/JokeCard';
 import Spinner from './spinner/Spinner';
+import Modal from './modal/Modal';
 import cog from '../assets/icons/cog.svg';
+
 class App extends Component {
 
   constructor(props) {
@@ -12,6 +14,7 @@ class App extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleSettingClick = this.handleSettingClick.bind(this);
+    this.handleModalClose = this.handleModalClose.bind(this);
   }
 
   componentDidMount() {
@@ -28,24 +31,33 @@ class App extends Component {
 
   handleSettingClick(e) {
     e.stopPropagation();
-    // TODO: Open modal
+    this.props.openModal();
+  }
+
+  handleModalClose() {
+    this.props.closeModal();
   }
 
   render() {
+    const { modalIsOpen } = this.props.app;
     const { randomJoke, isLoading } = this.props.joke;
 
     return (
-      <div className="App" onClick={this.handleClick}>
+      <main className="App" onClick={this.handleClick}>
         <JokeCard text={randomJoke || ''}>
           <Spinner show={isLoading}/>
         </JokeCard>
 
-        <div className="App-setting-bar">
+        <aside className="App-setting-bar">
           <button className="App-button" onClick={this.handleSettingClick}>
             <img src={cog} className="App-button-icon" alt="cog"/>
           </button>
-        </div>
-      </div>
+        </aside>
+
+        <Modal open={modalIsOpen} handleClose={this.handleModalClose}>
+          <h3>Modal Content</h3>
+        </Modal>
+      </main>
     );
   }
 }
