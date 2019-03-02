@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
 
 import App from "../components/App";
-import { initApp, fetchRandomJoke } from "../actions";
+import { initApp, fetchRandomJoke, changeHero } from "../actions";
 
-const mapStateToProps = ({ app, joke }) => {
-  return { app, joke };
-}
+const mapStateToProps = (state) => ({
+  app: state.app,
+  joke: state.joke
+});
 
 const mapDispatchToProps = (dispatch) => {
   return {
     initApp: () => dispatch(initApp()),
-    fetchRandomJoke: () => dispatch(fetchRandomJoke())
+    fetchRandomJoke: () => dispatch(fetchRandomJoke()),
+    changeHero: (hero) => dispatch(changeHero(hero))
   }
 }
 

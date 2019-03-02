@@ -20,6 +20,7 @@ class App extends Component {
 
   handleClick(e) {
     if (!this.props.joke.isLoading) {
+      this.props.changeHero('Jean-Claude Van Damme');
       this.props.fetchRandomJoke();
     }
   }

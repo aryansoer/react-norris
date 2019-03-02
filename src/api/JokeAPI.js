@@ -2,6 +2,7 @@ const axios = require('axios');
 
 export const JokeAPI = (function JokeAPI() {
   const API_URL = 'https://api.icndb.com';
+  const API_HERO = 'Chuck Norris';
 
   function fetchRandomJoke() {
     return axios.get(`${API_URL}/jokes/random`)
@@ -16,6 +17,7 @@ export const JokeAPI = (function JokeAPI() {
   }
 
   return {
+    hero: API_HERO,
     fetchRandomJoke
   };
 })();
