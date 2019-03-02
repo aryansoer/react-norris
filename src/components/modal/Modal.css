@@ -1,5 +1,6 @@
 :root {
   --modal-bg-color: #ffffff;
+  --modal-padding: 12px;
 }
 
 .Modal {
@@ -11,18 +12,6 @@
   background: rgba(0, 0, 0, 0.35);
 }
 
-.Modal-content {
-  position: fixed;
-  background: var(--modal-bg-color);
-  width: 30%;
-  height: auto;
-  top: 40%;
-  left: 50%;
-  padding: 15px;
-  border-radius: 5px;
-  transform: translate(-50%,-50%);
-}
-
 .Modal.open {
   display: block;
 }
@@ -31,13 +20,40 @@
   display: none;
 }
 
+.Modal-content {
+  position: fixed;
+  background: var(--modal-bg-color);
+  width: 30%;
+  height: auto;
+  top: 40%;
+  left: 50%;
+  border-radius: 5px;
+  transform: translate(-50%,-50%);
+}
+
+.Modal-content-header {
+  position: relative;
+  padding: var(--modal-padding);
+  height: 46px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.Modal-content-header span {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.Modal-content-body {
+  padding: calc(2 * var(--modal-padding)) var(--modal-padding);
+}
+
 .Modal-close {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 10px;
-  right: 10px;
+  top: var(--modal-padding);
+  right: var(--modal-padding);
 }
 
 .Modal-close:hover {

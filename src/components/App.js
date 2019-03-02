@@ -55,7 +55,7 @@ class App extends Component {
         </aside>
 
         <Modal open={modalIsOpen} handleClose={this.handleModalClose}>
-          <h3>Modal Content</h3>
+          Modal Content
         </Modal>
       </main>
     );
