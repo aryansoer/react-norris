@@ -4,13 +4,14 @@ import './App.css';
 
 import JokeCard from './joke-card/JokeCard';
 import Spinner from './spinner/Spinner';
-
+import cog from '../assets/icons/cog.svg';
 class App extends Component {
 
   constructor(props) {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleSettingClick = this.handleSettingClick.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +26,11 @@ class App extends Component {
     }
   }
 
+  handleSettingClick(e) {
+    e.stopPropagation();
+    // TODO: Open modal
+  }
+
   render() {
     const { randomJoke, isLoading } = this.props.joke;
 
@@ -33,6 +39,12 @@ class App extends Component {
         <JokeCard text={randomJoke || ''}>
           <Spinner show={isLoading}/>
         </JokeCard>
+
+        <div className="App-setting-bar">
+          <button className="App-button" onClick={this.handleSettingClick}>
+            <img src={cog} className="App-button-icon" alt="cog"/>
+          </button>
+        </div>
       </div>
     );
   }

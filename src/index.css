@@ -25,3 +25,8 @@ code {
 * {
   box-sizing: border-box;
 }
+
+:root {
+  --bg-color: #eceff1;
+  --primary-text-color: #212121;
+}
