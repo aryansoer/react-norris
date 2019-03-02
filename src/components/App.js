@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.initApp();
     this.props.fetchRandomJoke();
   }
 
@@ -40,7 +39,7 @@ class App extends Component {
     const { value } = this.heroInput.current;
 
     if (value) {
-      this.props.changeHero(value);
+      this.props.changeAppHero(value);
       this.props.closeModal();
       this.heroInput.current.style.borderColor = '#dddddd';
     } else {
@@ -53,8 +52,9 @@ class App extends Component {
   }
 
   render() {
-    const { modalIsOpen, hero } = this.props.app;
+    const { hero } = this.props.app;
     const { randomJoke, isLoading } = this.props.joke;
+    const { isOpen } = this.props.modal;
 
     return (
       <main className="App" onClick={this.handleClick}>
@@ -68,7 +68,7 @@ class App extends Component {
           </button>
         </aside>
 
-        <Modal open={modalIsOpen} title={'Joke Hero'} handleClose={this.handleModalClose}>
+        <Modal open={isOpen} title={'Joke Hero'} handleClose={this.handleModalClose}>
             <div className="App-hero-form">
               <input type="text" className="App-hero-input" defaultValue={hero} ref={this.heroInput}/>
               <button className="App-button App-hero-button" onClick={this.handleChange}>Save</button>

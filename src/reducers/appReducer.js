@@ -1,39 +1,16 @@
-import { ON_APP_INIT, CHANGE_HERO, OPEN_MODAL, CLOSE_MODAL } from '../actions';
+import { CHANGE_APP_HERO } from '../actions';
 import { JokeAPI } from '../api/JokeAPI';
 
 const defaultHero = JokeAPI.hero;
 
 const initialState = {
-  hero: defaultHero,
-  appInitialized: false,
-  modalIsOpen: false
+  hero: defaultHero
 };
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
-    case ON_APP_INIT:
-      return {
-        ...state,
-        appInitialized: true
-      };
-
-    case CHANGE_HERO:
-      return {
-        ...state,
-        hero: action.hero || defaultHero
-      };
-
-    case OPEN_MODAL:
-      return {
-        ...state,
-        modalIsOpen: true
-      };
-
-    case CLOSE_MODAL:
-      return {
-        ...state,
-        modalIsOpen: false
-      };
+    case CHANGE_APP_HERO:
+      return { ...state, hero: action.hero || defaultHero };
 
     default:
       return state;

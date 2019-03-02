@@ -2,23 +2,22 @@ import { connect } from 'react-redux';
 
 import App from "../components/App";
 import {
-  initApp,
   fetchRandomJoke,
-  changeHero,
+  changeAppHero,
   openModal,
   closeModal
 } from "../actions";
 
 const mapStateToProps = (state) => ({
   app: state.app,
-  joke: state.joke
+  joke: state.joke,
+  modal: state.modal
 });
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    initApp: () => dispatch(initApp()),
     fetchRandomJoke: () => dispatch(fetchRandomJoke()),
-    changeHero: (hero) => dispatch(changeHero(hero)),
+    changeAppHero: (hero) => dispatch(changeAppHero(hero)),
     openModal: () => dispatch(openModal()),
     closeModal: () => dispatch(closeModal())
   }
