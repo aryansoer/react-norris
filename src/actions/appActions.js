@@ -1,3 +1,5 @@
+import { changeRandomJokeHero } from "./jokeActions";
+
 export const ON_APP_INIT = 'ON_APP_INIT';
 export const CHANGE_HERO = 'CHANGE_HERO';
 export const OPEN_MODAL = 'OPEN_MODAL';
@@ -7,11 +9,13 @@ export function initApp() {
   return { type: ON_APP_INIT };
 }
 
-/**
- * @param {string} hero
- */
-export function changeHero(hero) {
-  return { type: CHANGE_HERO, hero };
+export function changeHero(newHero) {
+  return (dispatch, getState) => {
+    const oldHero = getState().app.hero;
+
+    dispatch({ type: CHANGE_HERO, hero: newHero });
+    dispatch(changeRandomJokeHero(oldHero, getState().app.hero));
+  };
 }
 
 export function openModal() {

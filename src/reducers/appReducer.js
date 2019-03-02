@@ -1,8 +1,10 @@
 import { ON_APP_INIT, CHANGE_HERO, OPEN_MODAL, CLOSE_MODAL } from '../actions';
 import { JokeAPI } from '../api/JokeAPI';
 
+const defaultHero = JokeAPI.hero;
+
 const initialState = {
-  hero: JokeAPI.hero,
+  hero: defaultHero,
   appInitialized: false,
   modalIsOpen: false
 };
@@ -18,7 +20,7 @@ function appReducer(state = initialState, action) {
     case CHANGE_HERO:
       return {
         ...state,
-        hero: action.hero
+        hero: action.hero || defaultHero
       };
 
     case OPEN_MODAL:

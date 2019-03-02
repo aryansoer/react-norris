@@ -4,6 +4,7 @@ import { replace } from '../lib/utils';
 export const FETCH_RANDOM_JOKE = 'FETCH_RANDOM_JOKE';
 export const FETCH_RANDOM_JOKE_SUCCESS = 'FETCH_RANDOM_JOKE_SUCCESS';
 export const FETCH_RANDOM_JOKE_FAILURE = 'FETCH_RANDOM_JOKE_FAILURE';
+export const CHANGE_RANDOM_JOKE_HERO = 'CHANGE_RANDOM_JOKE_HERO';
 
 export function fetchRandomJoke() {
   return async (dispatch, getState) => {
@@ -25,4 +26,8 @@ export function fetchRandomJoke() {
       });
     }
   };
+}
+
+export function changeRandomJokeHero(oldHero, newHero) {
+  return { type: CHANGE_RANDOM_JOKE_HERO, oldHero, newHero };
 }

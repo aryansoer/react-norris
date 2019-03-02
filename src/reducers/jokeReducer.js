@@ -1,8 +1,10 @@
 import {
   FETCH_RANDOM_JOKE,
   FETCH_RANDOM_JOKE_SUCCESS,
-  FETCH_RANDOM_JOKE_FAILURE
+  FETCH_RANDOM_JOKE_FAILURE,
+  CHANGE_RANDOM_JOKE_HERO
 } from '../actions';
+import { replace } from '../lib/utils';
 
 const initialState = {
   randomJoke: null,
@@ -30,7 +32,13 @@ function jokeReducer(state = initialState, action) {
         ...state,
         error: action.error,
         isLoading: false
-      }
+      };
+
+    case CHANGE_RANDOM_JOKE_HERO:
+      return {
+        ...state,
+        randomJoke: replace(state.randomJoke, action.oldHero, action.newHero)
+      };
 
     default:
       return state;
