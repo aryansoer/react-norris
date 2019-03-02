@@ -5,10 +5,10 @@ export const JokeAPI = (function JokeAPI() {
   const API_HERO = 'Chuck Norris';
 
   function fetchRandomJoke() {
-    return axios.get(`${API_URL}/jokes/random`)
+    return axios.get(`${API_URL}/jokes/random?escape=javascript`)
       .then(({ data }) => {
         return (data && data.type === 'success')
-          ? Promise.resolve(data.value.joke)
+          ? Promise.resolve(decodeURIComponent(data.value.joke))
           : Promise.reject();
       })
       .catch(() => {
