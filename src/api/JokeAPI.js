@@ -12,7 +12,7 @@ export const JokeAPI = (function JokeAPI() {
           : Promise.reject();
       })
       .catch(() => {
-        throw new Error('Could not fetch a random joke!');
+        throw new Error('Could not fetch a random joke =(');
       });
   }
 

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import JokeCard from './joke-card/JokeCard';
+import JokeError from './joke-error/JokeError';
 import Spinner from './spinner/Spinner';
 import Modal from './modal/Modal';
 import cog from '../assets/icons/cog.svg';
@@ -51,29 +52,58 @@ class App extends Component {
     this.props.closeModal();
   }
 
-  render() {
+  renderJoke() {
+    const { randomJoke, isLoading, error } = this.props.joke;
+
+    if (error) {
+      return (
+        <JokeError error={error}>
+          <Spinner show={isLoading}/>
+        </JokeError>
+      );
+    }
+
+    return (
+      <JokeCard text={randomJoke || ''}>
+        <Spinner show={isLoading}/>
+      </JokeCard>
+    );
+  }
+
+  renderSettingBar() {
+    const { error } = this.props.joke;
+
+    if (error) return null;
+
+    return (
+      <aside className="App-setting-bar">
+        <button className="App-button" onClick={this.handleSettingClick}>
+          <img src={cog} className="App-button-icon" alt="cog"/>
+        </button>
+      </aside>
+    );
+  }
+
+  renderModal() {
     const { hero } = this.props.app;
-    const { randomJoke, isLoading } = this.props.joke;
     const { isOpen } = this.props.modal;
 
     return (
+      <Modal open={isOpen} title={'Joke Hero'} handleClose={this.handleModalClose}>
+        <div className="App-hero-form">
+          <input type="text" className="App-hero-input" defaultValue={hero} ref={this.heroInput}/>
+          <button className="App-button App-hero-button" onClick={this.handleChange}>Save</button>
+        </div>
+      </Modal>
+    );
+  }
+
+  render() {
+    return (
       <main className="App" onClick={this.handleClick}>
-        <JokeCard text={randomJoke || ''}>
-          <Spinner show={isLoading}/>
-        </JokeCard>
-
-        <aside className="App-setting-bar">
-          <button className="App-button" onClick={this.handleSettingClick}>
-            <img src={cog} className="App-button-icon" alt="cog"/>
-          </button>
-        </aside>
-
-        <Modal open={isOpen} title={'Joke Hero'} handleClose={this.handleModalClose}>
-            <div className="App-hero-form">
-              <input type="text" className="App-hero-input" defaultValue={hero} ref={this.heroInput}/>
-              <button className="App-button App-hero-button" onClick={this.handleChange}>Save</button>
-            </div>
-        </Modal>
+        {this.renderJoke()}
+        {this.renderSettingBar()}
+        {this.renderModal()}
       </main>
     );
   }

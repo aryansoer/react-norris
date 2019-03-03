@@ -9,7 +9,7 @@ import { replace } from '../lib/utils';
 const initialState = {
   randomJoke: null,
   isLoading: false,
-  error: {}
+  error: null
 };
 
 function jokeReducer(state = initialState, action) {
@@ -24,6 +24,7 @@ function jokeReducer(state = initialState, action) {
       return {
         ...state,
         randomJoke: action.randomJoke,
+        error: null,
         isLoading: false
       };
 

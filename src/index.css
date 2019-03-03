@@ -29,4 +29,5 @@ code {
 :root {
   --bg-color: #eceff1;
   --primary-text-color: #212121;
+  --error-color: #f4511e;
 }
