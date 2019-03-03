@@ -1,0 +1,17 @@
+{
+  "main.css": "/react-norris/static/css/main.b67628c1.chunk.css",
+  "main.js": "/react-norris/static/js/main.24162a3a.chunk.js",
+  "main.js.map": "/react-norris/static/js/main.24162a3a.chunk.js.map",
+  "runtime~main.js": "/react-norris/static/js/runtime~main.c906d3f0.js",
+  "runtime~main.js.map": "/react-norris/static/js/runtime~main.c906d3f0.js.map",
+  "static/js/2.781aa333.chunk.js": "/react-norris/static/js/2.781aa333.chunk.js",
+  "static/js/2.781aa333.chunk.js.map": "/react-norris/static/js/2.781aa333.chunk.js.map",
+  "index.html": "/react-norris/index.html",
+  "precache-manifest.65d51bf6d90abe864204af708b9daf25.js": "/react-norris/precache-manifest.65d51bf6d90abe864204af708b9daf25.js",
+  "service-worker.js": "/react-norris/service-worker.js",
+  "static/css/main.b67628c1.chunk.css.map": "/react-norris/static/css/main.b67628c1.chunk.css.map",
+  "static/media/index.css": "/react-norris/static/media/Montserrat-Regular.9c460951.ttf",
+  "static/media/close.svg": "/react-norris/static/media/close.629b03c8.svg",
+  "static/media/cog.svg": "/react-norris/static/media/cog.c952e3bb.svg",
+  "static/media/spinner.svg": "/react-norris/static/media/spinner.8cde2f6b.svg"
+}
