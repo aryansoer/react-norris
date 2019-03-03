@@ -16,6 +16,10 @@
   background-color: var(--bg-color);
 }
 
+.App-has-error {
+  color: var(--error-color);
+}
+
 .App-setting-bar {
   position: absolute;
   top: 0;

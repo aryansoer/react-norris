@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-import JokeCard from './joke-card/JokeCard';
-import JokeError from './joke-error/JokeError';
+import Joke from './joke/Joke';
 import Spinner from './spinner/Spinner';
 import Modal from './modal/Modal';
 import cog from '../assets/icons/cog.svg';
@@ -56,17 +55,13 @@ class App extends Component {
     const { randomJoke, isLoading, error } = this.props.joke;
 
     if (error) {
-      return (
-        <JokeError error={error}>
-          <Spinner show={isLoading}/>
-        </JokeError>
-      );
+      return <h2 className="App-has-error">{error}</h2>
     }
 
     return (
-      <JokeCard text={randomJoke || ''}>
+      <Joke text={randomJoke || ''}>
         <Spinner show={isLoading}/>
-      </JokeCard>
+      </Joke>
     );
   }
 
@@ -92,7 +87,7 @@ class App extends Component {
       <Modal open={isOpen} title={'Joke Hero'} handleClose={this.handleModalClose}>
         <div className="App-hero-form">
           <input type="text" className="App-hero-input" defaultValue={hero} ref={this.heroInput}/>
-          <button className="App-button App-hero-button" onClick={this.handleChange}>Save</button>
+          <button className="App-button App-hero-button" onClick={this.handleChange}>Change</button>
         </div>
       </Modal>
     );

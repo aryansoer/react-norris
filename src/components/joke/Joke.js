@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './JokeCard.css';
+import './Joke.css';
 
-const JokeCard = ({ text, children }) => {
+const Joke = ({ text, children }) => {
   return (
-    <h1 className="JokeCard">
+    <h1 className="Joke">
       {children} <span>{text}</span>
     </h1>
   );
 }
 
-JokeCard.propTypes = {
+Joke.propTypes = {
   text: PropTypes.string.isRequired,
   children: PropTypes.element
 };
 
-export default JokeCard;
+export default Joke;
