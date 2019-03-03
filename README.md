@@ -1,6 +1,5 @@
-[https://aryansoer.github.io/react-norris/](https://aryansoer.github.io/react-norris/)
+Application are now published at [https://aryansoer.github.io/react-norris/](https://aryansoer.github.io/react-norris/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
